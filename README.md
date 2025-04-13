@@ -14,6 +14,9 @@ Dumped from a v1.0 Xbox. The config word is 0x86:
 
 A config value of 0x3FB6 is suitable for SMC clones so that they don't have code protection enabled.
 
+## P11
+Dumped from a v1.3 Xbox. Same config word as P01
+
 # Dumping methodology
 I don't want to reveal all the details yet, so here is the vague outline on how I dumped the PIC.
 
