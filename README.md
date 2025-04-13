@@ -5,7 +5,14 @@ PIC16 dumps from the original Xbox and IDA databases with some reverse engineeri
 The .bin file for each dump has the bytes swapped for correct loading into IDA. So the first word of PIC memory is byte_0 + byte_1 << 8.
 
 ## P01
-Dumped from a v1.0 Xbox.
+Dumped from a v1.0 Xbox. The config word is 0x86:
+- CP1:CP0 = 0 (Code Protection enabled for the whole memory)
+- BODEN = 0 (Brown-out Reset disabled)
+- ~PWRTE = 0 (Power-up Timer enabled)
+- WDTE = 1 (Watchdog Timer enabled)
+- FOSC1:FOSC0 = 2 (HS oscillator)
+
+A config value of 0x3FB6 is suitable for SMC clones so that they don't have code protection enabled.
 
 # Dumping methodology
 I don't want to reveal all the details yet, so here is the vague outline on how I dumped the PIC.
