@@ -6,6 +6,8 @@ The .bin file for each dump has the bytes swapped for correct loading into IDA. 
 
 The .idb IDA databases have info about variable and some observations on the database notepad.
 
+See this wiki page for a breakdown of the SMC versions: https://xboxdevwiki.net/Xboxen_Info
+
 ## P01
 Dumped from a v1.0 Xbox. The config word is 0x86:
 - CP1:CP0 = 0 (Code Protection enabled for the whole memory)
