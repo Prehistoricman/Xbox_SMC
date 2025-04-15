@@ -1,6 +1,8 @@
 # Xbox_SMC
 PIC16 dumps from the original Xbox and IDA databases with some reverse engineering done.
 
+![Image of PIC16LC63A from an original Xbox](pic16lc63a.jpg)
+
 # Dumps
 The .bin file for each dump has the bytes swapped for correct loading into IDA. So the first word of PIC memory is byte_0 + byte_1 << 8.
 
