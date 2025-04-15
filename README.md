@@ -25,6 +25,8 @@ Dumped from a v1.3 Xbox. Same config word as P01.
 
 There are a few small changes in P11 versus P01 including an extra SMBus command (write 0x22), different LED priorities, and more relaxed timings for boot.
 
+I checked scrambled dumps of v1.3 against v1.4 and they matched. This means it's highly likely they have the same program.
+
 # Dumping methodology
 I don't want to reveal all the details yet, so here is the vague outline on how I dumped the PIC.
 
