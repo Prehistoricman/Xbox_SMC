@@ -506,7 +506,7 @@ void __not_in_flash_func(loop)() {
             //Do a read, expect 3FFF
             send_command(ICSP_CMD_READ_DATA);
             uint32_t preprog = receive_data();
-            if (preprog != 0x3FFF) {
+            if ((preprog != 0x3FFF) && (preprog != burnword)) {
                 xprintf("Memory is not erased! Data at 0x%X = 0x%X\n", addr, preprog);
                 break;
             }
