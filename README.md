@@ -34,7 +34,7 @@ The machine code matches Intel 8051 quite well but not perfectly.
 
 # Xyclops dumping
 
-The Xyclops chip has 3 pins for 'debug': DBG_TXD, DBG_RXD, and DEBUG. Set the DEBUG pin high to enable the serial port on the TX and RX pins. The serial operates at 9600 baud.
+The Xyclops chip has 3 pins for 'debug': TXD (pin 64), RXD (pin 63), and DEBUG (pin 29). Set the DEBUG pin high to enable the serial port on the TX and RX pins. The serial operates at 9600 baud.
 
 The protocol is based on 4-byte commands which are typically in the format `<cmd>` `<address MSByte>` `<address LSByte>` `<don't care>`
 
