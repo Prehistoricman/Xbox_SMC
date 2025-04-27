@@ -14,9 +14,10 @@ for i in range(5):
 if not synced:
     print("Couldn't sync")
     exit(1)
+print("Serial synced")
    
 with open("dump.bin", "wb") as outfile:
-    for i in range(0, 0xFFFF+1, 64):
+    for i in range(0, 0x2000, 64):
         #Send command and address
         port.write([cmd, i >> 8, i & 0xFF, 0])
         
@@ -27,3 +28,4 @@ with open("dump.bin", "wb") as outfile:
         payload = response[1:]
         outfile.write(payload)
         outfile.flush()
+        print("0x%X - 0x%X dumped" % (i, i+63))
