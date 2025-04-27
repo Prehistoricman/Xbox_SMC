@@ -1,5 +1,5 @@
 # Xbox_SMC
-PIC16 dumps from the original Xbox and IDA databases with some reverse engineering done.
+PIC16/Xyclops dumps from the original Xbox and IDA databases with some reverse engineering done.
 
 ![Image of PIC16LC63A from an original Xbox](pic16lc63a.jpg)
 
