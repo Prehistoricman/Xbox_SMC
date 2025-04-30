@@ -10,6 +10,11 @@ The .idb IDA databases have info about variable and some observations on the dat
 
 See this wiki page for a breakdown of the SMC versions: https://xboxdevwiki.net/Xboxen_Info
 
+## B2A
+Dumped from a DVT3 Xbox. Same config word as P01. It also has the device ID burned in the config area as 0000 0000 000B 002A, unlike the production PICs.
+
+It's completely missing the boot challenge.
+
 ## P01
 Dumped from a v1.0 Xbox. The config word is 0x86:
 - CP1:CP0 = 0 (Code Protection enabled for the whole memory)
@@ -28,9 +33,9 @@ There are a few small changes in P11 versus P01 including an extra SMBus command
 I checked scrambled dumps of v1.3 against v1.4 and they matched. This means it's highly likely they have the same program.
 
 ## P2L
-Dumped from a v1.6 Xbox. Xyclops revision A-A02.
+Dumped from a v1.6 Xbox. Xyclops revision A-A02. It contains Intel 8051 code but has lots of special function registers that have unknown function.
 
-The machine code matches Intel 8051 quite well but not perfectly.
+The debug serial is powered by the code at FC00. Looks like a crude debugger that can pause execution, dump data, and write to registers/RAM.
 
 # Xyclops dumping
 
