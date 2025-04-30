@@ -17,7 +17,7 @@ if not synced:
 print("Serial synced")
    
 with open("dump.bin", "wb") as outfile:
-    for i in range(0, 0x2000, 64):
+    for i in range(0, 0x10000, 64):
         #Send command and address
         port.write([cmd, i >> 8, i & 0xFF, 0])
         
