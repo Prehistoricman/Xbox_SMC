@@ -88,7 +88,7 @@ if __name__ == "__main__":
     parser.add_argument("filepath", type=str, help="Path to the input file")
     parser.add_argument("serial_port", type=str, help="Name of the serial port (e.g., COM1 or /dev/ttyUSB0)")
     parser.add_argument("-O", "--override", action="store_true", help="Overrides BIOS size check & other checks")
-    parser.add_argument("-s", "--speed", action="store_true", help="Run serial at 9600 (may improve stability)")
+    parser.add_argument("-s", "--speed", action="store_true", help="Run serial at 9600 (may improve stability but it's 2x slower)")
     parser.add_argument("-v", "--verify", action="store_true", help="Just verify, don't erase or program")
     args = parser.parse_args()
     
@@ -104,10 +104,10 @@ if __name__ == "__main__":
             print("Port may be in use")
         else:
             print("Port doesn't exist")
+            print("Ports available:", ", ".join([x.device for x in serial.tools.list_ports.comports()]))
         exit(1)
 
     xy = Xyclops(port)
-    #filename = r"D:\Documents\XBOX\Cerbios\releases\Cerbios V2.4.2 Beta\Cerbios Hybrid V2.4.2 Beta.bin"
     
     filedata = b""
     try:
