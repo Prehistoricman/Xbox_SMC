@@ -3,6 +3,9 @@ PIC16/Xyclops dumps from the original Xbox and IDA databases with some reverse e
 
 ![Image of PIC16LC63A from an original Xbox](pic16lc63a.jpg)
 
+# Xyclops flashing (XycloMod)
+See [the Xyclops directory and README](/Xyclops)
+
 # Dumps
 The .bin file for each dump has the bytes swapped for correct loading into IDA. So the first word of PIC memory is byte_0 + byte_1 << 8.
 
@@ -43,7 +46,7 @@ The Xyclops chip has 3 pins for 'debug': TXD (pin 64), RXD (pin 63), and DEBUG (
 
 The protocol is based on 4-byte commands which are typically in the format `<cmd>` `<address MSByte>` `<address LSByte>` `<don't care>`
 
-Command 0x14 dumps out 64 bytes of BIOS data at a time and 0x15 dumps 64 bytes of SMC program data at a time. A dump from Xyclops, P2L.bin, is included in the repo. xyclops_dumper.py is also included for you to dump your own machine.
+Command 0x14 dumps out 64 bytes of BIOS data at a time and 0x15 dumps 64 bytes of SMC program data at a time. A dump from Xyclops, P2L.bin, is included in the repo. [xyclops_dumper.py](/Xyclops/xyclops_dumper.py) is also included for you to dump your own machine.
 
 # PIC dumping methodology
 I don't want to reveal all the details yet, so here is the vague outline on how I dumped the PIC.
