@@ -50,6 +50,7 @@ class Xyclops:
 
     def erase_BIOS(self):
         self.port.write([0x84, 0, 0, 0])
+        starttime = time.time()
         attempts = 0
         while self.port.in_waiting != 2:
             time.sleep(0.1)
@@ -57,6 +58,7 @@ class Xyclops:
             if attempts > 15: #1.5s timeout. Erase takes only 300ms on my box
                 print("Erase timeout")
                 return False
+        print("Erase took %.3f seconds" % (time.time() - starttime))
         response = self.port.read(2)
         return response[0] == 0x84
     
@@ -91,7 +93,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process a file with serial port communication.")
     parser.add_argument("filepath", type=str, help="Path to the input file")
     parser.add_argument("serial_port", type=str, help="Name of the serial port (e.g., COM1 or /dev/ttyUSB0)")
-    parser.add_argument("-O", "--override", action="store_true", help="Overrides BIOS size check & other checks")
+    parser.add_argument("-O", "--override", action="store_true", help="Overrides BIOS size checks")
     parser.add_argument("-s", "--speed", action="store_true", help="Run serial at 9600 (may improve stability but it's 2x slower)")
     parser.add_argument("-v", "--verify", action="store_true", help="Just verify, don't erase or program")
     args = parser.parse_args()
@@ -128,8 +130,6 @@ if __name__ == "__main__":
         print("Padded input file to 0x%X bytes" % len(filedata))
 
     if not args.override:
-        if filedata[0] & 1 == 0:
-            print("Error: BIOS is not compatible with Xyclops! You probably used a TSOP-compatible one. (bit 0 issue)")
         if len(filedata) < 0x1000:
             print("Error: BIOS file is very small! (disable this check with -O flag)")
             exit(1)
@@ -186,7 +186,7 @@ if __name__ == "__main__":
             for i in range(0, len(filedata), 64):
                 if i & 0xFFFF == 0:
                     #Set BIOS bank select bits. 8051 can only address 16 bits
-                    xy.write_register(0x91, i >> 16);
+                    xy.write_register(0x91, i >> 16)
                 port.write([0x16, (i >> 8) & 0xFF, i & 0xFF])
                 port.write(filedata[i:][:64])
                 response = port.read(2)
@@ -204,7 +204,7 @@ if __name__ == "__main__":
             for i in range(0, len(filedata), 64):
                 if i & 0xFFFF == 0:
                     #Set BIOS bank select bits. 8051 can only address 16 bits
-                    xy.write_register(0x91, i >> 16);
+                    xy.write_register(0x91, i >> 16)
                 read = xy.read_BIOS(i)
                 if read != filedata[i:][:64]:
                     print("Verify failure at 0x%X" % i)
