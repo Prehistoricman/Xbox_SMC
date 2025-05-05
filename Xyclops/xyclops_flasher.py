@@ -1,4 +1,8 @@
-import serial
+try:
+    import serial
+except ModuleNotFoundError:
+    print("Error: pyserial not installed. install by executing: pip install pyserial")
+    exit(1)
 import serial.tools.list_ports
 import time
 import math
