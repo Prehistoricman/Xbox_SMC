@@ -18,6 +18,11 @@ Dumped from a DVT3 Xbox. Same config word as P01. It also has the device ID burn
 
 It's completely missing the boot challenge.
 
+## D2E
+Dumped from a Tuscany (v1.6) dev kit. Xyclops chip is marked X01202-001, and is missing the A-A02 or A-B01 line that retail units have.
+
+The debug serial code at FC00 matches the retail P2L dump. There is a strange pattern of data from 0x4000 to 0xFBFF.
+
 ## P01
 Dumped from a v1.0 Xbox. The config word is 0x86:
 - CP1:CP0 = 0 (Code Protection enabled for the whole memory)
