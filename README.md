@@ -7,7 +7,7 @@ PIC16/Xyclops dumps from the original Xbox and IDA databases with some reverse e
 See [the Xyclops directory and README](/Xyclops)
 
 # Dumps
-The .bin file for each dump has the bytes swapped for correct loading into IDA. So the first word of PIC memory is byte_0 + byte_1 << 8.
+The .bin file for each PIC dump has the bytes swapped for correct loading into IDA. So the first word of PIC memory is byte_0 + byte_1 << 8.
 
 The .idb IDA databases have info about variable and some observations on the database notepad.
 
