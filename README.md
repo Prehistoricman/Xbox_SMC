@@ -18,6 +18,9 @@ Dumped from a DVT3 Xbox. Same config word as P01. It also has the device ID burn
 
 It's completely missing the boot challenge.
 
+## D01
+Dumped from XDK BETA 2 Xbox. Identical to P01 except for missing boot challenge. The function to compute the expected boot challenge response is still there, but never called.
+
 ## D2E
 Dumped from a Tuscany (v1.6) dev kit. Xyclops chip is marked X01202-001, and is missing the A-A02 or A-B01 line that retail units have.
 
