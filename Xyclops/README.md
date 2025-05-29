@@ -4,8 +4,8 @@ See the tutorial: [OGXbox forums](https://www.ogxbox.com/forums/index.php?/topic
 
 # Xyclops serial protocol
 
-TODO
+See the wiki: [xboxdevwiki/Xyclops](https://xboxdevwiki.net/Xyclops)
 
 # Xyclops internal registers
 
-TODO
+See the wiki: [xboxdevwiki/Xyclops](https://xboxdevwiki.net/Xyclops)
